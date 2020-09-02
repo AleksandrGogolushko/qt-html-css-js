@@ -5,10 +5,10 @@
 
 @font-face {
   font-family: Exo;
-  src: url(../../font/Exo2.0-Thin.otf); }
+  src: url(../font/Exo2.0-Thin.otf); }
 
 body {
-  background-image: url(../../image/background.png);
+  background-image: url(../image/background.png);
   width: 100vw;
   height: 100vh;
   background-size: cover;
@@ -48,7 +48,7 @@ body {
         clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%, 0 9%);
         border-radius: 3%;
         position: relative;
-        background-image: url(../../image/cat.png);
+        background-image: url(../image/cat.png);
         background-repeat: no-repeat;
         background-size: cover; }
         .wrapper .product-wraper .product .cover::after {
@@ -145,7 +145,7 @@ body {
         opacity: 0.2; }
       .wrapper .product-wraper .product.not-available .cover {
         border: 5px solid #b3b3b3;
-        background: linear-gradient(rgba(179, 179, 179, 0.377), rgba(179, 179, 179, 0.377)), url(../../image/cat.png);
+        background: linear-gradient(rgba(179, 179, 179, 0.377), rgba(179, 179, 179, 0.377)), url(../image/cat.png);
         background-size: cover; }
         .wrapper .product-wraper .product.not-available .cover::after {
           background: #b3b3b3; }
