@@ -1,0 +1,481 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Exo;
+  src: url(../../font/Exo2.0-Thin.otf);
+}
+
+body {
+  background-image: url(../../image/background.png);
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  width: 100%;
+  height: calc(100vw / 1.97);
+
+  h1 {
+    color: white;
+    text-align: center;
+    font-family: Exo;
+    font-size: 3vw;
+    font-weight: 100;
+  }
+
+  .product-wraper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 2%;
+    height: 90%;
+    align-items: center;
+
+    .product {
+      position: relative;
+      width: 26.4%;
+      height: 87.5%;
+
+      .cover {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        border: 5px solid #1698d9;
+        clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%, 0 9%);
+        border-radius: 3%;
+        position: relative;
+        background-image: url(../../image/cat.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 20%;
+          height: 50%;
+          position: absolute;
+          background: #1698d9;
+          z-index: -10;
+          transform: rotate(45deg);
+          top: -19%;
+          left: -20%;
+        }
+
+        .discription {
+          width: 87%;
+          height: 40%;
+          position: absolute;
+          right: 0;
+          padding-left: 1.5%;
+          padding-top: 6%;
+          p {
+            font-family: Trebuchet MS;
+          }
+          .name {
+            font-size: 1.4vw;
+            letter-spacing: -0.5px;
+             
+            &.leave{
+                color: #d91667;
+            }
+          }
+          .type {
+            font-size: 4.2vw;
+          }
+          .ingridient {
+            font-size: 2.1vw;
+            margin-bottom: 4%;
+          }
+          .portions,
+          .gifts,
+          .big-deal {
+            font-size: 1.2vw;
+          }
+
+          .name,
+          .portions,
+          .gifts,
+          .big-deal {
+            color: #666666;
+          }
+        }
+        .width {
+          width: 26%;
+          height: 17%;
+          background-color: #1698d9;
+          border-radius: 50%;
+          position: absolute;
+          bottom: 3%;
+          right: 3.5%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          p {
+            font-size: 3.5vw;
+            color: white;
+            text-align: center;
+            line-height: 0.6;
+            font-family: Trebuchet MS;
+            height: 50%;
+            width: 60%;
+            span {
+              font-size: 2vw;
+            }
+          }
+
+          .two-digits {
+            width: 75%;
+          }
+        }
+      }
+
+      .phrase {
+        cursor: default;
+        color: white;
+        text-align: center;
+        font-family: Trebuchet MS;
+        font-size: 1.1vw;
+        position: absolute;
+        bottom: -6%;
+        width: auto;
+        margin-left: 50%;
+        transform: translate(-50%, 0%);
+        white-space: nowrap;
+       
+        .buy {
+          cursor: pointer;
+          border-bottom: 1px dashed #1698d9;
+        }
+
+        .buy,
+        .dot {
+          color: #1698d9;
+        }
+
+        &.ended {
+          color: #ffff66;
+        }
+
+        &.hidden{
+            display: none;
+        }
+
+      }
+
+      &.select {
+        .cover {
+          border: 5px solid #d91667;
+          &::after {
+            background: #d91667;
+          }
+        }
+        .width {
+          background-color: #d91667;
+        }
+      }
+
+      &.not-available {
+        .discription {
+          opacity: 0.2;
+        }
+        .cover {
+          border: 5px solid #b3b3b3;
+          background: linear-gradient(
+              rgba(179, 179, 179, 0.377),
+              rgba(179, 179, 179, 0.377)
+            ),
+            url(../../image/cat.png);
+          background-size: cover;
+
+          &::after {
+            background: #b3b3b3;
+          }
+        }
+        .width {
+          background-color: #c5c5c5;
+        }
+      }
+    }
+
+    .product:not(.select):not(.not-available) {
+      &:hover {
+        .cover {
+          border: 5px solid #2ea8e6;
+          &::after {
+            background: #2ea8e6;
+          }
+        }
+        .width {
+          background-color: #2ea8e6;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) and (orientation: portrait) {
+  .wrapper {
+    height: 90%;
+
+    h1 {
+      font-size: 4vw;
+    }
+
+    .product-wraper {
+      flex-wrap: wrap;
+
+      .product {
+        width: 34%;
+        height: calc(34.5vw * 1.5);
+        margin: 3% 0 4%;
+
+        .cover {
+          border: 4px solid #1698d9;
+          clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%, 0 9%);
+
+          .discription {
+            padding-top: 4%;
+
+            .ingridient {
+              font-size: 2.7vw;
+            }
+
+            .portions,
+            .gifts,
+            .big-deal,
+            .name {
+              font-size: 2vw;
+            }
+          }
+
+          .width {
+            p {
+              font-size: 4vw;
+            }
+          }
+        }
+
+        .phrase {
+          font-size: 2vw;
+          transform: translate(-50%, 45%);
+          white-space: pre-wrap;
+          width: 100%;
+        }
+
+        &.select {
+          .cover {
+            border: 4px solid #d91667;
+          }
+        }
+
+        &.not-available {
+          .cover {
+            border: 4px solid #b3b3b3;
+          }
+        }
+      }
+
+      .product:not(.select):not(.not-available) {
+        &:hover {
+          .cover {
+            border: 4px solid #2ea8e6;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .wrapper {
+    width: 100%;
+    height: 100%;
+
+    h1 {
+      margin-top: 2%;
+      font-size: 7vw;
+    }
+
+    .product-wraper {
+      flex-direction: column;
+      justify-content: space-between;
+      height: auto;
+      margin-top: 4%;
+
+      .product {
+        width: 60%;
+        height: 94vw;
+        margin-bottom: 15%;
+
+        .cover {
+          border: 3px solid #1698d9;
+          clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%, 0 9%);
+
+          .discription {
+            padding-top: 4%;
+
+            p {
+              font-family: Trebuchet MS;
+            }
+
+            .name {
+              font-size: 3.5vw;
+            }
+            .type {
+              font-size: 10vw;
+            }
+            .ingridient {
+              font-size: 4.5vw;
+              margin-bottom: 2%;
+            }
+            .portions,
+            .gifts,
+            .big-deal {
+              font-size: 3.5vw;
+            }
+
+            .name,
+            .portions,
+            .gifts,
+            .big-deal {
+              color: #666666;
+            }
+          }
+          .width {
+            p {
+              font-size: 6vw;
+              line-height: 0.8;
+              span {
+                font-size: 5vw;
+              }
+            }
+          }
+        }
+
+        .phrase {
+          font-size: 3.5vw;
+          width: 65vw;
+          white-space: pre-wrap;
+          transform: translate(-50%, 40%);
+        }
+
+        &.select {
+          .cover {
+            border: 3px solid #d91667;
+          }
+        }
+
+        &.not-available {
+          .cover {
+            border: 3px solid #b3b3b3;
+          }
+        }
+      }
+
+      .product:not(.select):not(.not-available) {
+        &:hover {
+          .cover {
+            border: 3px solid #2ea8e6;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-height: 425px) {
+  .wrapper {
+    width: 100%;
+    height: 90%;
+
+    h1 {
+      font-size: 3.5vw;
+    }
+
+    .product-wraper {
+      margin-top: 0;
+
+      .product {
+        position: relative;
+        width: 48vh;
+
+        .cover {
+          border: 3px solid #1698d9;
+          clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%, 0 9%);
+
+          .discription {
+            padding-top: 4%;
+
+            .name {
+              font-size: 3.2vh;
+            }
+
+            .type {
+              font-size: 6vh;
+            }
+
+            .ingridient {
+              font-size: 3.5vh;
+            }
+            .portions,
+            .gifts,
+            .big-deal {
+              font-size: 2.8vh;
+            }
+          }
+          .width {
+            p {
+              font-size: 6vh;
+
+              span {
+                font-size: 3vh;
+              }
+            }
+          }
+        }
+
+        .phrase {
+          font-size: 2.5vh;
+          bottom: -8%;
+          transform: translate(-50%, 40%);
+          white-space: pre-wrap;
+          width: 100%;
+          .buy {
+            cursor: pointer;
+            border-bottom: 1px dashed #1698d9;
+          }
+        }
+
+        &.select {
+          .cover {
+            border: 3px solid #d91667;
+          }
+        }
+
+        &.not-available {
+          .cover {
+            border: 3px solid #b3b3b3;
+          }
+        }
+      }
+
+      .product:not(.select):not(.not-available) {
+        &:hover {
+          .cover {
+            border: 3px solid #2ea8e6;
+          }
+        }
+      }
+    }
+  }
+}
