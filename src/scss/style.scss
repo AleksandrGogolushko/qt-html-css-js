@@ -30,6 +30,8 @@ body {
     font-family: Exo;
     font-size: 3vw;
     font-weight: 100;
+    margin-top: 2%;
+    margin-bottom: -1%;
   }
 
   .product-wraper {
@@ -37,7 +39,7 @@ body {
     flex-direction: row;
     justify-content: space-around;
     margin-top: 2%;
-    height: 90%;
+    height: 85%;
     align-items: center;
 
     .product {
@@ -229,6 +231,7 @@ body {
 
     h1 {
       font-size: 4vw;
+      margin: 0;
     }
 
     .product-wraper {
@@ -400,6 +403,7 @@ body {
 
     h1 {
       font-size: 3.5vw;
+      margin: 0;
     }
 
     .product-wraper {
