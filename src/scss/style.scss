@@ -18,12 +18,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
 }
 
 .wrapper {
   width: 100%;
   height: calc(100vw / 1.97);
   max-height: 100vh;
+  position: relative;
+  .content-wraper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+  }
   h1 {
     color: white;
     text-align: center;
@@ -31,22 +42,19 @@ body {
     font-size: 3vw;
     font-weight: 100;
     margin-top: 2%;
-    margin-bottom: -1%;
+    margin-bottom: -2%;
   }
-
   .product-wraper {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 2%;
+    margin-top: 1.5%;
     height: 85%;
     align-items: center;
-
     .product {
       position: relative;
       width: 26.4%;
       height: 87.5%;
-
       .cover {
         cursor: pointer;
         width: 100%;
@@ -58,8 +66,7 @@ body {
         background-image: url(../../image/cat.png);
         background-repeat: no-repeat;
         background-size: cover;
-        background-position:center;
-
+        background-position: center;
         &::after {
           content: "";
           display: block;
@@ -72,8 +79,7 @@ body {
           top: -19%;
           left: -20%;
         }
-
-        .discription {
+        .description {
           width: 87%;
           height: 40%;
           position: absolute;
@@ -86,15 +92,15 @@ body {
           .name {
             font-size: 1.4vw;
             letter-spacing: -0.5px;
-             
-            &.leave{
-                color: #d91667;
+
+            &.leave {
+              color: #d91667;
             }
           }
           .type {
             font-size: 4.2vw;
           }
-          .ingridient {
+          .ingredient {
             font-size: 2.1vw;
             margin-bottom: 4%;
           }
@@ -103,7 +109,6 @@ body {
           .big-deal {
             font-size: 1.2vw;
           }
-
           .name,
           .portions,
           .gifts,
@@ -111,33 +116,42 @@ body {
             color: #666666;
           }
         }
-        .width {
+        .weigth {
           width: 26%;
-          height: 17%;
+          height: 18%;
           background-color: #1698d9;
           border-radius: 50%;
           position: absolute;
           bottom: 3%;
-          right: 3.5%;
+          right: 3%;
           display: flex;
           justify-content: center;
           align-items: center;
-
           p {
             font-size: 3.5vw;
             color: white;
             text-align: center;
             line-height: 0.6;
             font-family: Trebuchet MS;
-            height: 50%;
+            height: 60%;
             width: 60%;
             span {
               font-size: 2vw;
             }
           }
-
           .two-digits {
             width: 75%;
+          }
+        }
+        &:not(.product.select .cover):not(.product.not-available .cover) {
+          &:hover {
+            border: 5px solid #2ea8e6;
+            &::after {
+              background: #2ea8e6;
+            }
+            .weigth {
+              background-color: #2ea8e6;
+            }
           }
         }
       }
@@ -154,25 +168,20 @@ body {
         margin-left: 50%;
         transform: translate(-50%, 0%);
         white-space: nowrap;
-       
         .buy {
           cursor: pointer;
           border-bottom: 1px dashed #1698d9;
         }
-
         .buy,
         .dot {
           color: #1698d9;
         }
-
         &.ended {
           color: #ffff66;
         }
-
-        &.hidden{
-            display: none;
+        &.hidden {
+          display: none;
         }
-
       }
 
       &.select {
@@ -181,17 +190,18 @@ body {
           &::after {
             background: #d91667;
           }
-        }
-        .width {
-          background-color: #d91667;
+          .weigth {
+            background-color: #d91667;
+          }
         }
       }
 
       &.not-available {
-        .discription {
+        .description {
           opacity: 0.2;
         }
         .cover {
+          cursor: default;
           border: 5px solid #b3b3b3;
           background: linear-gradient(
               rgba(179, 179, 179, 0.377),
@@ -203,32 +213,22 @@ body {
           &::after {
             background: #b3b3b3;
           }
-        }
-        .width {
-          background-color: #c5c5c5;
-        }
-      }
-    }
-
-    .product:not(.select):not(.not-available) {
-      &:hover {
-        .cover {
-          border: 5px solid #2ea8e6;
-          &::after {
-            background: #2ea8e6;
+          .weigth {
+            background-color: #c5c5c5;
           }
-        }
-        .width {
-          background-color: #2ea8e6;
         }
       }
     }
   }
 }
 
-@media (max-width: 1024px) and (orientation: portrait) {
+@media (orientation: portrait) {
   .wrapper {
     height: 90%;
+
+    .content-wraper {
+      height: auto;
+    }
 
     h1 {
       font-size: 4vw;
@@ -241,16 +241,16 @@ body {
       .product {
         width: 34%;
         height: calc(34.5vw * 1.5);
-        margin: 3% 0 4%;
+        margin: 2% 0 4%;
 
         .cover {
           border: 4px solid #1698d9;
           clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%, 0 9%);
 
-          .discription {
+          .description {
             padding-top: 4%;
 
-            .ingridient {
+            .ingredient {
               font-size: 2.7vw;
             }
 
@@ -262,7 +262,7 @@ body {
             }
           }
 
-          .width {
+          .weigth {
             p {
               font-size: 4vw;
             }
@@ -304,7 +304,10 @@ body {
   .wrapper {
     width: 100%;
     height: 100%;
-
+    .content-wraper {
+      top: 0;
+      transform: translate(-50%, 0);
+    }
     h1 {
       margin-top: 2%;
       font-size: 7vw;
@@ -325,20 +328,18 @@ body {
           border: 3px solid #1698d9;
           clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%, 0 9%);
 
-          .discription {
+          .description {
             padding-top: 4%;
-
             p {
               font-family: Trebuchet MS;
             }
-
             .name {
               font-size: 3.5vw;
             }
             .type {
               font-size: 10vw;
             }
-            .ingridient {
+            .ingredient {
               font-size: 4.5vw;
               margin-bottom: 2%;
             }
@@ -347,7 +348,6 @@ body {
             .big-deal {
               font-size: 3.5vw;
             }
-
             .name,
             .portions,
             .gifts,
@@ -355,7 +355,7 @@ body {
               color: #666666;
             }
           }
-          .width {
+          .weigth {
             p {
               font-size: 6vw;
               line-height: 0.8;
@@ -418,7 +418,7 @@ body {
           border: 3px solid #1698d9;
           clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%, 0 9%);
 
-          .discription {
+          .description {
             padding-top: 4%;
 
             .name {
@@ -429,7 +429,7 @@ body {
               font-size: 6vh;
             }
 
-            .ingridient {
+            .ingredient {
               font-size: 3.5vh;
             }
             .portions,
@@ -438,7 +438,7 @@ body {
               font-size: 2.8vh;
             }
           }
-          .width {
+          .weigth {
             p {
               font-size: 6vh;
 

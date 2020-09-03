@@ -8,7 +8,6 @@ const browserSync = require("browser-sync").create();
 const terser = require("gulp-terser");
 const del = require("del");
 const sass = require('gulp-sass');
-const concat = require('gulp-concat');
 
 //all files
 const cssFiles = ["./src/css/work_file/*.css"];
@@ -74,6 +73,7 @@ function image(){
       }))
     .pipe(gulp.dest("./dist/src/image"))
 }
+
 function watch(){
     browserSync.init({
         server: {
@@ -93,6 +93,7 @@ function watch(){
     gulp.watch("./src/scss/*",scssToCss)
 
 }
+
 // delete all file after create new change
 function clean(){
     return del(["dist/*"])
@@ -106,6 +107,7 @@ gulp.task("ScssConvert",scssToCss)
 gulp.task("styles",styles);
 //JS
 gulp.task("scripts",scripts);
+//Copy folder
 gulp.task("copyLib",copyLib);
 //Image
 gulp.task("image",image);

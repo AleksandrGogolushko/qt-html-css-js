@@ -15,12 +15,22 @@ body {
   background-position: center;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  user-select: none; }
 
 .wrapper {
   width: 100%;
   height: calc(100vw / 1.97);
-  max-height: 100vh; }
+  max-height: 100vh;
+  position: relative; }
+  .wrapper .content-wraper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%; }
   .wrapper h1 {
     color: white;
     text-align: center;
@@ -28,12 +38,12 @@ body {
     font-size: 3vw;
     font-weight: 100;
     margin-top: 2%;
-    margin-bottom: -1%; }
+    margin-bottom: -2%; }
   .wrapper .product-wraper {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 2%;
+    margin-top: 1.5%;
     height: 85%;
     align-items: center; }
     .wrapper .product-wraper .product {
@@ -50,7 +60,8 @@ body {
         position: relative;
         background-image: url(../../image/cat.png);
         background-repeat: no-repeat;
-        background-size: cover; }
+        background-size: cover;
+        background-position: center; }
         .wrapper .product-wraper .product .cover::after {
           content: "";
           display: block;
@@ -62,57 +73,63 @@ body {
           transform: rotate(45deg);
           top: -19%;
           left: -20%; }
-        .wrapper .product-wraper .product .cover .discription {
+        .wrapper .product-wraper .product .cover .description {
           width: 87%;
           height: 40%;
           position: absolute;
           right: 0;
           padding-left: 1.5%;
           padding-top: 6%; }
-          .wrapper .product-wraper .product .cover .discription p {
+          .wrapper .product-wraper .product .cover .description p {
             font-family: Trebuchet MS; }
-          .wrapper .product-wraper .product .cover .discription .name {
+          .wrapper .product-wraper .product .cover .description .name {
             font-size: 1.4vw;
             letter-spacing: -0.5px; }
-            .wrapper .product-wraper .product .cover .discription .name.leave {
+            .wrapper .product-wraper .product .cover .description .name.leave {
               color: #d91667; }
-          .wrapper .product-wraper .product .cover .discription .type {
+          .wrapper .product-wraper .product .cover .description .type {
             font-size: 4.2vw; }
-          .wrapper .product-wraper .product .cover .discription .ingridient {
+          .wrapper .product-wraper .product .cover .description .ingredient {
             font-size: 2.1vw;
             margin-bottom: 4%; }
-          .wrapper .product-wraper .product .cover .discription .portions,
-          .wrapper .product-wraper .product .cover .discription .gifts,
-          .wrapper .product-wraper .product .cover .discription .big-deal {
+          .wrapper .product-wraper .product .cover .description .portions,
+          .wrapper .product-wraper .product .cover .description .gifts,
+          .wrapper .product-wraper .product .cover .description .big-deal {
             font-size: 1.2vw; }
-          .wrapper .product-wraper .product .cover .discription .name,
-          .wrapper .product-wraper .product .cover .discription .portions,
-          .wrapper .product-wraper .product .cover .discription .gifts,
-          .wrapper .product-wraper .product .cover .discription .big-deal {
+          .wrapper .product-wraper .product .cover .description .name,
+          .wrapper .product-wraper .product .cover .description .portions,
+          .wrapper .product-wraper .product .cover .description .gifts,
+          .wrapper .product-wraper .product .cover .description .big-deal {
             color: #666666; }
-        .wrapper .product-wraper .product .cover .width {
+        .wrapper .product-wraper .product .cover .weigth {
           width: 26%;
-          height: 17%;
+          height: 18%;
           background-color: #1698d9;
           border-radius: 50%;
           position: absolute;
           bottom: 3%;
-          right: 3.5%;
+          right: 3%;
           display: flex;
           justify-content: center;
           align-items: center; }
-          .wrapper .product-wraper .product .cover .width p {
+          .wrapper .product-wraper .product .cover .weigth p {
             font-size: 3.5vw;
             color: white;
             text-align: center;
             line-height: 0.6;
             font-family: Trebuchet MS;
-            height: 50%;
+            height: 60%;
             width: 60%; }
-            .wrapper .product-wraper .product .cover .width p span {
+            .wrapper .product-wraper .product .cover .weigth p span {
               font-size: 2vw; }
-          .wrapper .product-wraper .product .cover .width .two-digits {
+          .wrapper .product-wraper .product .cover .weigth .two-digits {
             width: 75%; }
+        .wrapper .product-wraper .product .cover:hover {
+          border: 5px solid #2ea8e6; }
+          .wrapper .product-wraper .product .cover:hover::after {
+            background: #2ea8e6; }
+          .wrapper .product-wraper .product .cover:hover .weigth {
+            background-color: #2ea8e6; }
       .wrapper .product-wraper .product .phrase {
         cursor: default;
         color: white;
@@ -139,28 +156,25 @@ body {
         border: 5px solid #d91667; }
         .wrapper .product-wraper .product.select .cover::after {
           background: #d91667; }
-      .wrapper .product-wraper .product.select .width {
-        background-color: #d91667; }
-      .wrapper .product-wraper .product.not-available .discription {
+        .wrapper .product-wraper .product.select .cover .weigth {
+          background-color: #d91667; }
+      .wrapper .product-wraper .product.not-available .description {
         opacity: 0.2; }
       .wrapper .product-wraper .product.not-available .cover {
+        cursor: default;
         border: 5px solid #b3b3b3;
         background: linear-gradient(rgba(179, 179, 179, 0.377), rgba(179, 179, 179, 0.377)), url(../../image/cat.png);
         background-size: cover; }
         .wrapper .product-wraper .product.not-available .cover::after {
           background: #b3b3b3; }
-      .wrapper .product-wraper .product.not-available .width {
-        background-color: #c5c5c5; }
-    .wrapper .product-wraper .product:not(.select):not(.not-available):hover .cover {
-      border: 5px solid #2ea8e6; }
-      .wrapper .product-wraper .product:not(.select):not(.not-available):hover .cover::after {
-        background: #2ea8e6; }
-    .wrapper .product-wraper .product:not(.select):not(.not-available):hover .width {
-      background-color: #2ea8e6; }
+        .wrapper .product-wraper .product.not-available .cover .weigth {
+          background-color: #c5c5c5; }
 
-@media (max-width: 1024px) and (orientation: portrait) {
+@media (orientation: portrait) {
   .wrapper {
     height: 90%; }
+    .wrapper .content-wraper {
+      height: auto; }
     .wrapper h1 {
       font-size: 4vw;
       margin: 0; }
@@ -169,20 +183,20 @@ body {
       .wrapper .product-wraper .product {
         width: 34%;
         height: calc(34.5vw * 1.5);
-        margin: 3% 0 4%; }
+        margin: 2% 0 4%; }
         .wrapper .product-wraper .product .cover {
           border: 4px solid #1698d9;
           clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%, 0 9%); }
-          .wrapper .product-wraper .product .cover .discription {
+          .wrapper .product-wraper .product .cover .description {
             padding-top: 4%; }
-            .wrapper .product-wraper .product .cover .discription .ingridient {
+            .wrapper .product-wraper .product .cover .description .ingredient {
               font-size: 2.7vw; }
-            .wrapper .product-wraper .product .cover .discription .portions,
-            .wrapper .product-wraper .product .cover .discription .gifts,
-            .wrapper .product-wraper .product .cover .discription .big-deal,
-            .wrapper .product-wraper .product .cover .discription .name {
+            .wrapper .product-wraper .product .cover .description .portions,
+            .wrapper .product-wraper .product .cover .description .gifts,
+            .wrapper .product-wraper .product .cover .description .big-deal,
+            .wrapper .product-wraper .product .cover .description .name {
               font-size: 2vw; }
-          .wrapper .product-wraper .product .cover .width p {
+          .wrapper .product-wraper .product .cover .weigth p {
             font-size: 4vw; }
         .wrapper .product-wraper .product .phrase {
           font-size: 2vw;
@@ -200,6 +214,9 @@ body {
   .wrapper {
     width: 100%;
     height: 100%; }
+    .wrapper .content-wraper {
+      top: 0;
+      transform: translate(-50%, 0); }
     .wrapper h1 {
       margin-top: 2%;
       font-size: 7vw; }
@@ -215,30 +232,30 @@ body {
         .wrapper .product-wraper .product .cover {
           border: 3px solid #1698d9;
           clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%, 0 9%); }
-          .wrapper .product-wraper .product .cover .discription {
+          .wrapper .product-wraper .product .cover .description {
             padding-top: 4%; }
-            .wrapper .product-wraper .product .cover .discription p {
+            .wrapper .product-wraper .product .cover .description p {
               font-family: Trebuchet MS; }
-            .wrapper .product-wraper .product .cover .discription .name {
+            .wrapper .product-wraper .product .cover .description .name {
               font-size: 3.5vw; }
-            .wrapper .product-wraper .product .cover .discription .type {
+            .wrapper .product-wraper .product .cover .description .type {
               font-size: 10vw; }
-            .wrapper .product-wraper .product .cover .discription .ingridient {
+            .wrapper .product-wraper .product .cover .description .ingredient {
               font-size: 4.5vw;
               margin-bottom: 2%; }
-            .wrapper .product-wraper .product .cover .discription .portions,
-            .wrapper .product-wraper .product .cover .discription .gifts,
-            .wrapper .product-wraper .product .cover .discription .big-deal {
+            .wrapper .product-wraper .product .cover .description .portions,
+            .wrapper .product-wraper .product .cover .description .gifts,
+            .wrapper .product-wraper .product .cover .description .big-deal {
               font-size: 3.5vw; }
-            .wrapper .product-wraper .product .cover .discription .name,
-            .wrapper .product-wraper .product .cover .discription .portions,
-            .wrapper .product-wraper .product .cover .discription .gifts,
-            .wrapper .product-wraper .product .cover .discription .big-deal {
+            .wrapper .product-wraper .product .cover .description .name,
+            .wrapper .product-wraper .product .cover .description .portions,
+            .wrapper .product-wraper .product .cover .description .gifts,
+            .wrapper .product-wraper .product .cover .description .big-deal {
               color: #666666; }
-          .wrapper .product-wraper .product .cover .width p {
+          .wrapper .product-wraper .product .cover .weigth p {
             font-size: 6vw;
             line-height: 0.8; }
-            .wrapper .product-wraper .product .cover .width p span {
+            .wrapper .product-wraper .product .cover .weigth p span {
               font-size: 5vw; }
         .wrapper .product-wraper .product .phrase {
           font-size: 3.5vw;
@@ -267,21 +284,21 @@ body {
         .wrapper .product-wraper .product .cover {
           border: 3px solid #1698d9;
           clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%, 0 9%); }
-          .wrapper .product-wraper .product .cover .discription {
+          .wrapper .product-wraper .product .cover .description {
             padding-top: 4%; }
-            .wrapper .product-wraper .product .cover .discription .name {
+            .wrapper .product-wraper .product .cover .description .name {
               font-size: 3.2vh; }
-            .wrapper .product-wraper .product .cover .discription .type {
+            .wrapper .product-wraper .product .cover .description .type {
               font-size: 6vh; }
-            .wrapper .product-wraper .product .cover .discription .ingridient {
+            .wrapper .product-wraper .product .cover .description .ingredient {
               font-size: 3.5vh; }
-            .wrapper .product-wraper .product .cover .discription .portions,
-            .wrapper .product-wraper .product .cover .discription .gifts,
-            .wrapper .product-wraper .product .cover .discription .big-deal {
+            .wrapper .product-wraper .product .cover .description .portions,
+            .wrapper .product-wraper .product .cover .description .gifts,
+            .wrapper .product-wraper .product .cover .description .big-deal {
               font-size: 2.8vh; }
-          .wrapper .product-wraper .product .cover .width p {
+          .wrapper .product-wraper .product .cover .weigth p {
             font-size: 6vh; }
-            .wrapper .product-wraper .product .cover .width p span {
+            .wrapper .product-wraper .product .cover .weigth p span {
               font-size: 3vh; }
         .wrapper .product-wraper .product .phrase {
           font-size: 2.5vh;
