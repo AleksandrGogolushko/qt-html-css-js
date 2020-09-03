@@ -2,23 +2,13 @@ let covers = document.querySelectorAll(".cover")
 let buy = document.querySelectorAll(".buy")
 
 covers.forEach(e => {
-    e.addEventListener("click", () => {
-        select(e.parentElement)
-    })
-
-    e.addEventListener("mouseleave", () => {
-        reversHover(true, "Котэ не одобряет?", e)
-    })
-
-    e.addEventListener("mouseenter", () => {
-        reversHover(false, "Сказочное заморское яство", e)
-    })
+    e.addEventListener("click", () => select(e.parentElement))
+    e.addEventListener("mouseleave", () => reversHover(true, "Котэ не одобряет?", e))
+    e.addEventListener("mouseenter", () => reversHover(false, "Сказочное заморское яство", e))
 })
 
 buy.forEach(e => {
-    e.addEventListener("click", () => {
-        select(e.parentElement.parentElement)
-    })
+    e.addEventListener("click", () => select(e.parentElement.parentElement))
 })
 
 function reversHover(leave, text, elements) {
