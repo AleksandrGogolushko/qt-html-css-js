@@ -25,7 +25,7 @@ body {
   height: calc(100vw / 1.97);
   max-height: 100vh;
   position: relative;
-  .content-wraper {
+  .content-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -43,7 +43,7 @@ body {
     margin-top: 2%;
     margin-bottom: -2%;
   }
-  .product-wraper {
+  .product-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -226,7 +226,7 @@ body {
   .wrapper {
     height: 90%;
 
-    .content-wraper {
+    .content-wrapper {
       height: auto;
     }
 
@@ -235,7 +235,7 @@ body {
       margin: 0;
     }
 
-    .product-wraper {
+    .product-wrapper {
       flex-wrap: wrap;
 
       .product {
@@ -304,7 +304,7 @@ body {
   .wrapper {
     width: 100%;
     height: 100%;
-    .content-wraper {
+    .content-wrapper {
       top: 0;
       transform: translate(-50%, 0);
     }
@@ -313,7 +313,7 @@ body {
       font-size: 7vw;
     }
 
-    .product-wraper {
+    .product-wrapper {
       flex-direction: column;
       justify-content: space-between;
       height: auto;
@@ -407,7 +407,7 @@ body {
       margin: 0;
     }
 
-    .product-wraper {
+    .product-wrapper {
       margin-top: 0;
 
       .product {
