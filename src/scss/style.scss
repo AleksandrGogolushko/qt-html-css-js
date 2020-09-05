@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: Exo;
-  src: url(../../font/Exo2.0-Thin.otf);
-}
-
 body {
   background-image: url(../../image/background.png);
   width: 100vw;
@@ -18,6 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .wrapper {
@@ -37,11 +33,11 @@ body {
   h1 {
     color: white;
     text-align: center;
-    font-family: Exo;
-    font-size: 3vw;
+    font-family: "Exo 2", sans-serif;
+    font-size: 2.8vw;
     font-weight: 100;
-    margin-top: 2%;
-    margin-bottom: -2%;
+    margin-top: 1.6%;
+    margin-bottom: -1.4%;
   }
   .product-wrapper {
     display: flex;
@@ -52,33 +48,17 @@ body {
     align-items: center;
     .product {
       position: relative;
-      width: 26.4%;
-      height: 87.5%;
+      width: 25%;
+    height: 87%;
+    top: -2.5%;
       .cover {
         cursor: pointer;
         width: 100%;
         height: 100%;
-        border: 5px solid #1698d9;
-        clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%, 0 9%);
-        border-radius: 3%;
         position: relative;
-        background-image: url(../../image/cat.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
         user-select: none;
-        &::after {
-          content: "";
-          display: block;
-          width: 20%;
-          height: 50%;
-          position: absolute;
-          background: #1698d9;
-          z-index: -10;
-          transform: rotate(45deg);
-          top: -19%;
-          left: -20%;
-        }
+        border-radius: 3%;
+         z-index: 1;
         .description {
           width: 87%;
           height: 40%;
@@ -90,7 +70,7 @@ body {
             font-family: Trebuchet MS;
           }
           .name {
-            font-size: 1.4vw;
+            font-size: 1.3vw;
             letter-spacing: -0.5px;
 
             &.leave {
@@ -98,16 +78,21 @@ body {
             }
           }
           .type {
-            font-size: 4.2vw;
+            font-size: 4vw;
+             line-height: 1.35;
           }
           .ingredient {
-            font-size: 2.1vw;
-            margin-bottom: 4%;
+            font-size: 2vw;
+            line-height: 0.5;
+          }
+
+          .portions{
+            margin-top: 8%;
           }
           .portions,
           .gifts,
           .big-deal {
-            font-size: 1.2vw;
+            font-size: 1.1vw;
           }
           .name,
           .portions,
@@ -118,41 +103,49 @@ body {
         }
         .weigth {
           width: 26%;
-          height: 18%;
+          height: 16.5%;
           background-color: #1698d9;
           border-radius: 50%;
           position: absolute;
           bottom: 3%;
-          right: 3%;
+          right: 4%;
           display: flex;
           justify-content: center;
           align-items: center;
+         
           p {
-            font-size: 3.5vw;
+            font-size: 3vw;
             color: white;
             text-align: center;
-            line-height: 0.6;
+            line-height: 0.7;
             font-family: Trebuchet MS;
             height: 60%;
             width: 60%;
             span {
-              font-size: 2vw;
+              font-size: 1.8vw;
             }
           }
           .two-digits {
             width: 75%;
           }
         }
-        &:not(.product.select .cover):not(.product.not-available .cover) {
+        img {
+          position: absolute;
+          width: 92%;
+          left: 1%;
+          bottom: 0.7%;
+          border-radius: 1vw;
+        }
+        svg {
+          position: absolute;
+        }
           &:hover {
-            border: 5px solid #2ea8e6;
-            &::after {
-              background: #2ea8e6;
+            .border{
+              stroke:#2ea8e6;
             }
             .weigth {
-              background-color: #2ea8e6;
+               background-color: #2ea8e6;
             }
-          }
         }
       }
 
@@ -161,12 +154,11 @@ body {
         color: white;
         text-align: center;
         font-family: Trebuchet MS;
-        font-size: 1.1vw;
+        font-size: 1vw;
         position: absolute;
-        bottom: -6%;
         width: auto;
         margin-left: 50%;
-        transform: translate(-50%, 0%);
+        transform: translate(-50%, 100%);
         white-space: nowrap;
         .buy {
           cursor: pointer;
@@ -186,35 +178,45 @@ body {
 
       &.select {
         .cover {
-          border: 5px solid #d91667;
-          &::after {
-            background: #d91667;
+          .border{
+            stroke:#d91667;
           }
           .weigth {
             background-color: #d91667;
           }
         }
+        &.hover {
+          .cover {
+            .border{
+              stroke:#e52e7a;
+            }
+            .weigth {
+              background-color: #e52e7a;
+            }
+          }
+        }
       }
 
       &.not-available {
+        img {
+          opacity: 0.6;
+        }
         .description {
           opacity: 0.2;
         }
         .cover {
           cursor: default;
-          border: 5px solid #b3b3b3;
           background: linear-gradient(
-              rgba(179, 179, 179, 0.377),
-              rgba(179, 179, 179, 0.377)
-            ),
-            url(../../image/cat.png);
-          background-size: cover;
-
-          &::after {
-            background: #b3b3b3;
-          }
+            rgba(179, 179, 179, 0.034),
+            rgba(179, 179, 179, 0.1)
+          );
           .weigth {
             background-color: #c5c5c5;
+          }
+        }
+        &:hover{
+          .border{
+            stroke:#c5c5c5;
           }
         }
       }
@@ -244,9 +246,9 @@ body {
         margin: 2% 0 4%;
 
         .cover {
-          border: 4px solid #1698d9;
-          clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%, 0 9%);
-
+          img{
+            bottom: 1.5%;
+          }
           .description {
             padding-top: 4%;
 
@@ -265,6 +267,7 @@ body {
           .weigth {
             p {
               font-size: 4vw;
+              width: 55%;
             }
           }
         }
@@ -275,32 +278,15 @@ body {
           white-space: pre-wrap;
           width: 100%;
         }
-
-        &.select {
-          .cover {
-            border: 4px solid #d91667;
-          }
-        }
-
-        &.not-available {
-          .cover {
-            border: 4px solid #b3b3b3;
-          }
-        }
-      }
-
-      .product:not(.select):not(.not-available) {
-        &:hover {
-          .cover {
-            border: 4px solid #2ea8e6;
-          }
-        }
       }
     }
   }
 }
 
 @media (max-width: 425px) {
+  body {
+    overflow: auto;
+  }
   .wrapper {
     width: 100%;
     height: 100%;
@@ -325,9 +311,11 @@ body {
         margin-bottom: 15%;
 
         .cover {
-          border: 3px solid #1698d9;
-          clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%, 0 9%);
-
+          img{
+            bottom: 2.8%;
+            left: 1%;
+            border-radius: 2.5vw;
+          }
           .description {
             padding-top: 4%;
             p {
@@ -335,9 +323,10 @@ body {
             }
             .name {
               font-size: 3.5vw;
+              margin-top: 4%;
             }
             .type {
-              font-size: 10vw;
+              font-size: 8vw;
             }
             .ingredient {
               font-size: 4.5vw;
@@ -356,6 +345,7 @@ body {
             }
           }
           .weigth {
+            bottom: 5%;
             p {
               font-size: 6vw;
               line-height: 0.8;
@@ -371,26 +361,6 @@ body {
           width: 65vw;
           white-space: pre-wrap;
           transform: translate(-50%, 40%);
-        }
-
-        &.select {
-          .cover {
-            border: 3px solid #d91667;
-          }
-        }
-
-        &.not-available {
-          .cover {
-            border: 3px solid #b3b3b3;
-          }
-        }
-      }
-
-      .product:not(.select):not(.not-available) {
-        &:hover {
-          .cover {
-            border: 3px solid #2ea8e6;
-          }
         }
       }
     }
@@ -415,9 +385,12 @@ body {
         width: 48vh;
 
         .cover {
-          border: 3px solid #1698d9;
-          clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%, 0 9%);
 
+          img{
+            width: 85%;
+            left: 4.5%;
+            bottom: 0.5%;
+          }
           .description {
             padding-top: 4%;
 
@@ -439,8 +412,16 @@ body {
             }
           }
           .weigth {
+            width: 23%;
+            right: 7%;
+
+            .two-digits{
+              height: 50%;
+            }
+    
             p {
               font-size: 6vh;
+              line-height: 0.6;
 
               span {
                 font-size: 3vh;
@@ -458,26 +439,6 @@ body {
           .buy {
             cursor: pointer;
             border-bottom: 1px dashed #1698d9;
-          }
-        }
-
-        &.select {
-          .cover {
-            border: 3px solid #d91667;
-          }
-        }
-
-        &.not-available {
-          .cover {
-            border: 3px solid #b3b3b3;
-          }
-        }
-      }
-
-      .product:not(.select):not(.not-available) {
-        &:hover {
-          .cover {
-            border: 3px solid #2ea8e6;
           }
         }
       }

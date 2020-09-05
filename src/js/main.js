@@ -1,6 +1,10 @@
 let covers = document.querySelectorAll(".cover")
 let buy = document.querySelectorAll(".buy")
 
+if (typeof NodeList !== "undefined" && NodeList.prototype && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = Array.prototype.forEach;
+}
+
 covers.forEach(e => {
     e.addEventListener("click", () => select(e.parentElement))
     e.addEventListener("mouseleave", () => reversHover(true, "Котэ не одобряет?", e))
@@ -16,6 +20,7 @@ function reversHover(leave, text, elements) {
         document.querySelector(`#${elements.parentElement.id} .name`).textContent = text;
         leave ? document.querySelector(`#${elements.parentElement.id} .name`).classList.add("leave") :
             document.querySelector(`#${elements.parentElement.id} .name`).classList.remove("leave");
+            document.querySelector(`#${elements.parentElement.id}`).classList.toggle("hover");
     }
 }
 
@@ -27,3 +32,4 @@ function select(elements) {
     document.querySelector(`#${elements.id} .phrase.buy-product`).classList.toggle("hidden")
     document.querySelector(`#${elements.id} .phrase.choice`).classList.toggle("hidden")
 }
+
